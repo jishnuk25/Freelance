@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mak Touch Computer Service LLC — Apple & Laptop Service, Abu Dhabi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --surface2: #18181b;
+    --surface3: #1f1f24;
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.15);
+    --text: #f0f0f0;
+    --text-muted: #888899;
+    --text-dim: #555566;
+    --accent: #5b9cf6;
+    --accent2: #a78bfa;
+    --accent3: #34d399;
+    --gold: #f59e0b;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Sora', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+    --glow: 0 0 60px rgba(91,156,246,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+    background: rgba(10,10,11,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+
+  .nav-logo-text {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(91,156,246,0.15) 0%, transparent 70%);
+    top: 10%; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(167,139,250,0.08) 0%, transparent 70%);
+    top: 30%; left: 20%;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(91,156,246,0.1);
+    border: 1px solid rgba(91,156,246,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    background: var(--accent3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(91,156,246,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(91,156,246,0.4);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    color: var(--text);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid var(--border-bright);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--surface3);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--text), var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* === SECTIONS === */
+  section { padding: 6rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* === SERVICES === */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 24px;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .service-badge {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  /* === WHY US === */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .why-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(91,156,246,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .why-item-icon {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    background: rgba(91,156,246,0.1);
+    border: 1px solid rgba(91,156,246,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .why-item-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .why-item-text p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .why-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+  }
+
+  .why-list-item:hover { border-color: var(--border-bright); }
+
+  .why-check {
+    width: 24px; height: 24px;
+    background: rgba(52,211,153,0.15);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+
+  /* === BRANDS === */
+  .brands { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .brands-label {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .brands-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .brand-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    padding: 10px 20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+
+  .brand-chip:hover { color: var(--text); border-color: var(--border-bright); }
+
+  .brand-chip-icon { font-size: 18px; }
+
+  /* === REVIEWS === */
+  .reviews { background: var(--surface); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+
+  .review-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-3px);
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1rem;
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .review-name { font-size: 14px; font-weight: 600; }
+  .review-source { font-size: 12px; color: var(--text-dim); }
+
+  .reviews-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .reviews-note a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* === LOCATION === */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-icon {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface2);
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .info-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 3px;
+  }
+
+  .info-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .info-value a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .info-value a:hover { text-decoration: underline; }
+
+  .map-embed {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    height: 100%;
+    min-height: 360px;
+  }
+
+  .map-embed iframe {
+    width: 100%; height: 100%;
+    border: none;
+    min-height: 360px;
+    display: block;
+  }
+
+  /* === HOURS === */
+  .hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .hour-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .hour-day { color: var(--text-muted); }
+  .hour-time { font-weight: 600; font-family: var(--font-mono); font-size: 13px; color: var(--accent3); }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--text), var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .footer-sub {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* === ANIMATIONS === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* === SCROLL REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .why-grid, .location-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Mak Touch</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="tel:+97126221235" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    Serving Abu Dhabi Since 2000
+  </div>
+
+  <h1>Expert Apple &amp;<br><em>Laptop Service</em><br>in Abu Dhabi</h1>
+
+  <p class="hero-sub">Certified technicians. Genuine parts. Transparent pricing. Your trusted repair partner on 12 Misakin Street.</p>
+
+  <div class="hero-actions">
+    <a href="tel:+97126221235" class="btn-primary">
+      📞 +971 2 622 1235
+    </a>
+    <a href="#contact" class="btn-secondary">
+      📍 Get Directions
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">25+</div>
+      <div class="hero-stat-label">Years Experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">10k+</div>
+      <div class="hero-stat-label">Devices Repaired</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">All</div>
+      <div class="hero-stat-label">Apple Devices</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">UAE</div>
+      <div class="hero-stat-label">Licensed LLC</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands" style="padding: 3rem 2rem;">
+  <div class="container">
+    <p class="brands-label">Devices We Service</p>
+    <div class="brands-row">
+      <div class="brand-chip"><span class="brand-chip-icon">🍎</span> MacBook</div>
+      <div class="brand-chip"><span class="brand-chip-icon">🖥️</span> iMac</div>
+      <div class="brand-chip"><span class="brand-chip-icon">📱</span> iPhone</div>
+      <div class="brand-chip"><span class="brand-chip-icon">📟</span> iPad</div>
+      <div class="brand-chip"><span class="brand-chip-icon">💻</span> Laptops</div>
+      <div class="brand-chip"><span class="brand-chip-icon">🖨️</span> Desktop PCs</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Our Services</div>
+      <h2>Everything your device<br><em>needs to thrive</em></h2>
+      <p style="color: var(--text-muted); max-width: 480px;">From hardware repairs to software troubleshooting, we handle it all with precision and care.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(91,156,246,0.12); color: var(--accent);">🍎</div>
+        <h3>Apple Mac Service</h3>
+        <p>Specialized repair and servicing for MacBook Pro, MacBook Air, Mac Mini, and iMac. Hardware faults, OS X reinstallation, RAM/SSD upgrades and more.</p>
+        <span class="service-badge" style="background: rgba(91,156,246,0.1); color: var(--accent);">Apple Specialist</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(167,139,250,0.12); color: var(--accent2);">💻</div>
+        <h3>Laptop Repair</h3>
+        <p>All brands: HP, Dell, Lenovo, Asus, Acer, Samsung and more. Screen replacement, keyboard, motherboard, battery, liquid damage and virus removal.</p>
+        <span class="service-badge" style="background: rgba(167,139,250,0.1); color: var(--accent2);">All Brands</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(52,211,153,0.12); color: var(--accent3);">📱</div>
+        <h3>iPhone & iPad Repair</h3>
+        <p>Screen replacements, battery swaps, charging port fixes, water damage recovery. OEM manufacturer parts with lifetime warranty on LCD &amp; touch screen.</p>
+        <span class="service-badge" style="background: rgba(52,211,153,0.1); color: var(--accent3);">Lifetime Warranty</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(245,158,11,0.12); color: var(--gold);">🖥️</div>
+        <h3>Desktop & PC Repair</h3>
+        <p>Monitors, motherboards, peripherals, hard disks, power supplies. On-site visits where possible — contact us and we handle the rest.</p>
+        <span class="service-badge" style="background: rgba(245,158,11,0.1); color: var(--gold);">On-Site Available</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(91,156,246,0.12); color: var(--accent);">💾</div>
+        <h3>Data Recovery</h3>
+        <p>Securely recover lost files from crashed drives, corrupted storage, and damaged devices. We treat your data with complete confidentiality.</p>
+        <span class="service-badge" style="background: rgba(91,156,246,0.1); color: var(--accent);">Confidential</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(167,139,250,0.12); color: var(--accent2);">⚙️</div>
+        <h3>Upgrades & Optimization</h3>
+        <p>RAM upgrades, SSD replacements, OS clean installs, performance tuning. Breathe new life into your older Mac or PC for a fraction of the cost of a new device.</p>
+        <span class="service-badge" style="background: rgba(167,139,250,0.1); color: var(--accent2);">Best Value</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" style="background: var(--surface);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Why Choose Us</div>
+      <h2>Abu Dhabi's trusted<br><em>repair experts</em></h2>
+    </div>
+
+    <div class="why-grid reveal">
+      <div class="why-visual">
+        <div class="why-item">
+          <div class="why-item-icon">🔧</div>
+          <div class="why-item-text">
+            <h4>Expert Technicians</h4>
+            <p>Strong technical background in Apple hardware &amp; software since OS 9 through the latest macOS.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-icon">🛡️</div>
+          <div class="why-item-text">
+            <h4>Guaranteed Repairs</h4>
+            <p>Every repair is backed by our service guarantee. We stand behind our work, always.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-icon">⚡</div>
+          <div class="why-item-text">
+            <h4>Fast Turnaround</h4>
+            <p>We value your time. Most repairs completed quickly so you're back up and running ASAP.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-icon">💎</div>
+          <div class="why-item-text">
+            <h4>Genuine Parts</h4>
+            <p>OEM manufacturer parts. No cheap substitutes — only quality components for lasting repairs.</p>
+          </div>
+        </div>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-list-item">
+          <div class="why-check">✓</div>
+          <div>
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 3px;">Fair &amp; Transparent Pricing</div>
+            <div style="font-size: 13px; color: var(--text-muted);">No hidden fees. Get a clear estimate before any work begins.</div>
+          </div>
+        </li>
+        <li class="why-list-item">
+          <div class="why-check">✓</div>
+          <div>
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 3px;">Data Security First</div>
+            <div style="font-size: 13px; color: var(--text-muted);">Professional ethics and data privacy are central to how we work.</div>
+          </div>
+        </li>
+        <li class="why-list-item">
+          <div class="why-check">✓</div>
+          <div>
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 3px;">Multi-Language Support</div>
+            <div style="font-size: 13px; color: var(--text-muted);">We serve customers in English and Hindi — welcoming all in Abu Dhabi.</div>
+          </div>
+        </li>
+        <li class="why-list-item">
+          <div class="why-check">✓</div>
+          <div>
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 3px;">Experienced Since 2000</div>
+            <div style="font-size: 13px; color: var(--text-muted);">Over two decades of Apple &amp; laptop repair expertise in Abu Dhabi.</div>
+          </div>
+        </li>
+        <li class="why-list-item">
+          <div class="why-check">✓</div>
+          <div>
+            <div style="font-weight: 600; font-size: 15px; margin-bottom: 3px;">On-Site Visits Available</div>
+            <div style="font-size: 13px; color: var(--text-muted);">Where possible, our technicians come to you for your convenience.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Customer Reviews</div>
+      <h2>What our customers<br><em>are saying</em></h2>
+      <p style="color: var(--text-muted); max-width: 480px; margin-bottom: 0.5rem;">Real feedback from real customers in Abu Dhabi.</p>
+    </div>
+
+    <div class="reviews-grid reveal">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Made my dead laptop alive. After three service centers told me it was not possible. Incredible work — highly recommend to anyone in Abu Dhabi!"</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: rgba(52,211,153,0.15); color: var(--accent3);">AK</div>
+          <div>
+            <div class="review-name">A. Karim</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Very knowledgeable team. They diagnosed my MacBook Pro issue within minutes and had it running perfectly the next day. Fair pricing too."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: rgba(91,156,246,0.15); color: var(--accent);">SM</div>
+          <div>
+            <div class="review-name">Sara M.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Genuine parts, professional service, and they explained everything clearly. My iMac is running like new. This is the place to go in Abu Dhabi."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: rgba(245,158,11,0.15); color: var(--gold);">RJ</div>
+          <div>
+            <div class="review-name">Ravi J.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reviews-note">
+      Reviews sourced from public listings. View more on
+      <a href="https://www.google.com/maps/place/Mak+Touch+Computer+Service+LLC" target="_blank" rel="noopener">Google Maps ↗</a>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT & MAP -->
+<section id="contact" style="background: var(--surface);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Find Us</div>
+      <h2>Visit our <em>service center</em></h2>
+    </div>
+
+    <div class="location-grid reveal">
+      <div>
+        <div class="info-card" style="margin-bottom: 1.5rem;">
+          <div class="info-row">
+            <div class="info-icon">📍</div>
+            <div>
+              <div class="info-label">Address</div>
+              <div class="info-value">12 Misakin St, Zone 1E10<br>Zone 1 · Abu Dhabi · UAE</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">📞</div>
+            <div>
+              <div class="info-label">Phone</div>
+              <div class="info-value"><a href="tel:+97126221235">+971 2 622 1235</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">📱</div>
+            <div>
+              <div class="info-label">Mobile / WhatsApp</div>
+              <div class="info-value"><a href="tel:+971552916426">+971 55 291 6426</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">🌐</div>
+            <div>
+              <div class="info-label">Website</div>
+              <div class="info-value"><a href="https://www.maktouchuae.com" target="_blank" rel="noopener">maktouchuae.com ↗</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div style="font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Business Hours</div>
+          <div class="hours-grid" style="grid-template-columns: 1fr;">
+            <div class="hour-chip">
+              <span class="hour-day">Mon – Thu</span>
+              <span class="hour-time">10:00 – 22:00</span>
+            </div>
+            <div class="hour-chip">
+              <span class="hour-day">Friday</span>
+              <span class="hour-time">14:00 – 22:00</span>
+            </div>
+            <div class="hour-chip">
+              <span class="hour-day">Sat – Sun</span>
+              <span class="hour-time">10:00 – 22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.5!2d54.3668!3d24.4844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e65d99a06a74f%3A0x1f363e42b53fe556!2sMak%20Touch%20Computer%20Service%20LLC%20Apple%20and%20Laptop%20Service!5e0!3m2!1sen!2sae!4v1704067200000!5m2!1sen!2sae"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mak Touch Computer Service Location Map"
+        ></iframe>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;" class="reveal">
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Ready to get your device repaired? Get in touch today.</p>
+      <a href="tel:+97126221235" class="btn-primary" style="margin-right: 1rem;">📞 Call +971 2 622 1235</a>
+      <a href="https://wa.me/971552916426" target="_blank" rel="noopener" class="btn-secondary">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Mak Touch</div>
+  <div class="footer-sub">Apple &amp; Laptop Service LLC · Abu Dhabi, UAE</div>
+
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+97126221235">+971 2 622 1235</a>
+  </div>
+
+  <p class="footer-copy">12 Misakin St, Zone 1 · Abu Dhabi · UAE &nbsp;|&nbsp; Serving since 2000 &nbsp;|&nbsp; Licensed UAE LLC</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
